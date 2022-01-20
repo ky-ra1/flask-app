@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Welcome, {{session.get('username') }}</h3>
+
+<section>
+    <article>Share a message</article>
+    <form action="/messages" method="POST">
+    <textarea name="message"> </textarea>
+    <button type="submit">Send</button>
+    </form>
+</section>
+
+<!-- <section>
+    <canvas>
+    
+    </canvas>
+</section> -->
+{% endblock content %}

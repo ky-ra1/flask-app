@@ -12,18 +12,20 @@ def loginpage():
 @session_controller.route('/sessions/create', methods=["POST"])
 def login():
     email = request.form.get('email')
+    # username = request.form.get('username')
     password = request.form.get('password')
 
     user = get_user_by_email(email)
-    # Make sure to encode the password coming from the database here as well :)
-    valid = user and bcrypt.checkpw(password.encode(), user['password'].encode())
+    # user = get_user_by_username(username)
+    
+    valid = user and bcrypt.checkpw(password.encode(), user['passwords'].encode())
     if valid:
-        # If they are in the database, we update the session
+      
         session['user_id'] = user['id']
-        session['user_name'] = user['name']
+        session['username'] = user['username']
         return redirect('/')
     else:
-        # If not, we could redirect them to an error page (or the login form)
+    
         return redirect('/login?error=Incorrect+username+or+password')
 
 @session_controller.route('/sessions/destroy', methods=["GET", "POST"])

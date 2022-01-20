@@ -12,18 +12,23 @@
 <body>
     <header>
         <h1>Welcome</h1>
-        <nav> 
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
-        </nav>
+        <ul class="navbar">
+            <li class="nav-items"><a href="/">Home</a></li>
+            <li class="nav-items"><a href="/about">About</a></li>
+        {% if session.get('user_id') %}
+            <li class="nav-items"><a href="/logout">Logout</a></li>
+        {% else %}
+            <li class="nav-items"><a href="/login">Login</a></li>   
+            <li class="nav-items"><a href="/signup">Signup</a></li> 
+        {% endif %}
+        </ul>
     </header>
 
 </body>
     <main class="sections">
         {% block content %} {% endblock content %}
     </main>
+
     <footer>
         <section>
         <div class="Acknowledgement_Of_Country">
@@ -40,6 +45,10 @@
                 <p> This website was created on Wiradjuri Country.</p>
             </div>
         </section>
-        <quote>" "</quote>
+        <!-- <quote>'quote'</quote>
+        <section>
+            <ul>
+            </ul>
+        </section> -->
     </footer>
 </html>

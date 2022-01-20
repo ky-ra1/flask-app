@@ -15,7 +15,11 @@ def create_user():
     email = request.form.get('email')
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
-    # password2 == password1
+    
+    if password2 == password1:
+        insert_user(first_name, last_name, username, email, password1)
+        return redirect('/')
+    else:
+        # flash('')
+        return redirect('/signup')
 
-    insert_user(first_name, last_name, username, email, password1, password2)
-    return redirect('/')

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/messages" method="POST">
+    <h2>Create Message</h2>
+    <div>
+        <label for="message">Message</label>
+        <input id="message" name="message" type="text" />
+    </div>
+    <div class="buttons">
+        <button type="submit">Send</button>
+        <!-- <button type="submit" id="draft">Save as draft</button> -->
+    </div>
+</form>
+{% endblock content %}

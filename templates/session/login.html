@@ -4,31 +4,30 @@
 <div className="signup-login">
     
     <form action="/sessions/create" method="POST">
-       <fieldset>
-           <legend>Login</legend>
         {% if error %}
             <div class="error">
                 {{error}}
             </div>
         {% endif %}
+
         <h2>Login</h2>
         <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="text" placeholder="Enter your email"/>
+            <input id="email" name="email" type="email" placeholder="Enter your email"/>
             <label for="username">Username</label>
             <input id="username" name="username" type="text" placeholder="Enter your username"/>
         </div>
         <div>
-        <!-- {% if password1 password2 }  -->
-            <label for="passwords">Password</label>
-            <input id="password1" name="password1" type="text" placeholder="Enter your password"/>
-            <input id="password2" name="password2" type="text" placeholder="Confirm your password"/>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter your password"/>
         </div>
         <div>
-        <!-- {% endif %} -->
             <button type="submit">Login</button>
         </div>
-        </fieldset>
+        <div>
+            <label for="reset">Clear field</label>
+            <input type="reset"/> 
+        </div>
     </form>
 </div>
 

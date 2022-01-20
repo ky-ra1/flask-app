@@ -3,8 +3,8 @@ import bcrypt
 print('Something')
 
 # Sign up
-passwords = 'passw0rd1!'
-hashed_password = bcrypt.hashpw(passwords.encode(), bcrypt.gensalt()).decode()
+password1 = 'passw0rd1!'
+hashed_password = bcrypt.hashpw(password1.encode(), bcrypt.gensalt()).decode()
 # Put this in database
 
 # Never print passwords or hashed password in production

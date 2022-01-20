@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/messages{{ message['id'] }} method="POST">
+    <h2>Edit Message</h2>
+    <div>
+        <label for="message">Edit Draft</label>
+        <input id="message" name="draft" type="text" />
+    </div>
+    <div class="button">
+        <button type="submit">Send</button>
+        <button type="submit" id="draft">Save as draft</button>
+    </div>
+</form>
+<form action="/messages{{ message['user_id'] }}/delete" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
+{% endblock content %}
