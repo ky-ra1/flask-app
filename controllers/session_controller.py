@@ -14,7 +14,6 @@ def login():
     email = request.form.get('email')
     # username = request.form.get('username')
     password = request.form.get('password')
-
     user = get_user_by_email(email)
     # user = get_user_by_username(username)
     
@@ -25,10 +24,9 @@ def login():
         session['username'] = user['username']
         return redirect('/')
     else:
-    
         return redirect('/login?error=Incorrect+username+or+password')
 
-@session_controller.route('/sessions/destroy', methods=["GET", "POST"])
+@session_controller.route('/logout', methods=["GET", "POST"])
 def logout():
     session.clear()
     return redirect('/')
