@@ -1,17 +1,51 @@
 html {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: linear-gradient(90deg, rgb(208, 255, 55) 0%, rgb(250, 22, 201) 57%, rgb(108, 231, 255) 100%);  
-}
+    
+    /* previous background: linear-gradient(90deg, rgb(208, 255, 55) 0%, rgb(250, 22, 201) 57%, rgb(108, 231, 255) 100%);   */
+
+    /* animated background */
+    background: linear-gradient(87deg, #b8e323, #ef5996, #c459ef, #59efee);
+    background-size: 800% 800%;
+    
+    -webkit-animation: Login_Page 30s ease infinite;
+    -moz-animation: Login_Page 30s ease infinite;
+    animation: Login_Page 30s ease infinite;
+    }
+    @-webkit-keyframes Login_Page {
+        0%{background-position:0% 83%}
+        50%{background-position:100% 18%}
+        100%{background-position:0% 83%}
+    }
+    @-moz-keyframes Login_Page {
+        0%{background-position:0% 83%}
+        50%{background-position:100% 18%}
+        100%{background-position:0% 83%}
+    }
+    @keyframes Login_Page {
+        0%{background-position:0% 83%}
+        50%{background-position:100% 18%}
+        100%{background-position:0% 83%}
+    }
+
+
+
 
 form {
+    border: 1px solid black;
     display: grid;
     padding: 2vh;
     margin: auto;
 }
 
 ul {
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: baseline;
+    list-style-type: none;
 }
 
 span {
