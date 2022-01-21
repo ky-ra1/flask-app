@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
 <form action="/messages" method="POST">
@@ -10,5 +11,9 @@
         <button type="submit">Send</button>
         <!-- <button type="submit" id="draft">Save as draft</button> -->
     </div>
+    <div>
+        <textarea></textarea>
+    </div>
 </form>
+
 {% endblock content %}
