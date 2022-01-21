@@ -1,5 +1,5 @@
 # Project 2 - Flask App.
-URL for project: 
+URL for project: https://blooming-mountain-79777.herokuapp.com/
 
 
 # Task
@@ -12,30 +12,30 @@ Create a Fullstack Functional Database Backend Application with Flask.
 For this project I used:
 
 - HTML
-- Jinja
+- Jinja2
 - CSS
 - Javascript
-- Flask
-- Postgres
-- Dbeaver
 - Python
-- Heroku
-- Github
-- Visual Studio Code (VScode)
-- Trello
-
+- Flask 
+- Postgres
+- Dbeaver initially until it stopped working (again) then I tried out pgAdmin4.
+- CLI for psql too
+- Heroku - Deployment
+- Github - Version control
+- Visual Studio Code (VScode) - Editor
+- Trello - Tasks
 # Wireframes and Planning
 Wireframes URL:
 
 - For this project
-
+ 
 # Installation Instructions
 
-
-
 # Retrospection
-- ( - TBA when completed.)
 
+
+### Recommendations:
 
  ## Unsolved Problems:
-- ( - TBA when completed.)
+- ( - TBA.)
+
