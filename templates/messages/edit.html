@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="/messages{{ message['id'] }} method="POST">
-    <h2>Edit Message</h2>
-    <div>
-        <label for="message">Edit Draft</label>
-        <input id="message" name="draft" type="text" />
+
+<!-- edit message -->
+<form action="/messages/{{ message['id'] }}" method="POST">
+    <div className="edit_single_msg">
+        <h2>Edit Message</h2>
+        <label for="message">Edit</label>
+        <input id="message" name="message" type="text" value="{{ message.get('message') }}"/>
     </div>
     <div class="button">
-        <button type="submit">Send</button>
-        <button type="submit" id="draft">Save as draft</button>
+        <button type="submit">Submit</button>
     </div>
 </form>
-<form action="/messages{{ message['user_id'] }}/delete" method="POST">
+
+<!-- delete message -->
+<form action="/messages/{{ message['id'] }}/delete" method="POST">
     <button type="submit">Delete</button>
 </form>
 
