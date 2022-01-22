@@ -14,11 +14,9 @@ def login():
     email = request.form.get('email')
     password = request.form.get('password')
     user = get_user_by_email(email)
-    # user = get_user_by_username(username)
     
     valid = user and bcrypt.checkpw(password.encode(), user['passwords'].encode())
     if valid:
-      
         session['user_id'] = user['id']
         session['username'] = user['username']
         return redirect('/')
