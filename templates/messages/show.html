@@ -2,10 +2,12 @@
 
 <div class="message-item">
     <div class="info">
-        <h2>{{ message['first_name'] }}</h2>
-        <a href="/messages/{{ message['id'] }}">Show</a>
+        <h2>{{ message['message'] }}</h2>
+        <form action="/messages/{{ message['id'] }}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
         {% if session.get('user_id') %}
-            <a href="/messages/{{message['id']}}/edit">Edit</a>
+            <a href="/messages/{{ message['id'] }}/edit">Edit</a>
         {% endif %}
     {% endblock content %}
 </div>
