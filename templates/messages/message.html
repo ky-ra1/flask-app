@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<a href="/message/create">Add a message</a>
+<a href="/messages/">Add a message</a>
 
-<section class="all-message">
-  {% for message in message_items %}
-    <div class="message-item">
-      <div class="info">
-        <h2>{{ message['user_id'] }}</h2>
-        <a href="/messages/{{message['id']}}">Show</a>
+<section class="all_messages">
+  {% for message in messages %}
+    <div class="message_items">
+        <h2>{{ message['message'] }}</h2>
+          <a href="/messages/{{message['id']}}">Show</a>
         {% if session.get('user_id') %}
           <a href="/messages/{{message['id']}}/edit">Edit</a>
         {% endif %}
