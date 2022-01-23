@@ -1,18 +1,18 @@
 
 {% extends 'base.html' %}
 {% block content %}
+
 <form action="/messages" method="POST">
-    <h2>Create Message</h2>
-    <div>
+    <div class="create_message">
+        <h2>Create Message</h2>
         <label for="message">Message</label>
         <input id="message" name="message" type="text" />
     </div>
-    <div class="buttons">
-        <button type="submit">Send</button>
-        <!-- <button type="submit" id="draft">Save as draft</button> -->
-    </div>
-    <div>
+    <div class="text_area">
         <textarea></textarea>
+    </div>
+    <div class="button">
+        <button type="submit">Submit</button>
     </div>
 </form>
 
