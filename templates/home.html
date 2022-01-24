@@ -1,19 +1,35 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h3>Welcome, {{session.get('username') }}</h3>
 
-<section>
-    <article>Share a message</article>
-    <form action="/messages" method="POST">
-    <textarea name="message"> </textarea>
-    <button type="submit">Send</button>
-    </form>
+{% if session.get('user_id') %}
+    <h3>You are awesome, {{session.get('username') }}!</h3>
+{% else %}
+    <h3>You are wonderful! </h3>
+{% endif %}
+
+<section class="save_message">
+    <fieldset>
+        <legend>Save a message</legend>
+        <form action="/messages" method="POST">
+            <textarea name="message"> </textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </fieldset>
 </section>
 
-<!-- <section>
-    <canvas>
-    
-    </canvas>
-</section> -->
+
+<section class="list_messages">
+    <ol>
+    {% for message in messages %}
+    <div class="message_items">
+        <li><h2>{{ message['message'] }}</h2></li>
+            <a href="/messages/{{ message['id'] }}/show">Show</a>
+    {% if session.get('user_id') %}
+            <a href="/messages/{{ message['id'] }}/edit">Edit</a>
+    {% endif %}
+    </div>
+    {% endfor %}
+    </ol>
+</section>
+
 {% endblock content %}

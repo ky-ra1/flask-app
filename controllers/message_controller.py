@@ -1,9 +1,16 @@
 from flask import Blueprint, request, session, redirect, render_template
-from models.message import delete_message, insert_message, get_message, update_message
+from models.message import delete_message, get_all_messages, insert_message, get_message, update_message
 
 message_controller = Blueprint("message_controller", __name__, template_folder="../templates/messages")
 
+
 @message_controller.route('/messages')
+def message():
+    message_items = get_all_messages()
+    return render_template('message.html', message_items=message_items)
+
+
+@message_controller.route('/messages/<id>/create')
 def create():
     if not session.get('user_id'):
         return redirect('/login')
@@ -19,7 +26,7 @@ def insert():
     )
     return redirect('/')
 
-@message_controller.route('/messages/<id>')
+@message_controller.route('/messages/<id>/show')
 def show(id):
     message = get_message(id)
     return render_template('show.html', message=message)
@@ -36,7 +43,7 @@ def update(id):
     if not session.get('user_id'):
         return redirect('/login')
     message = request.form.get("message")    
-    update_message(id, message, session.get('user_id'))
+    update_message(message, id)
     return redirect('/')
 
 @message_controller.route('/messages/<id>/delete', methods=["POST"])
