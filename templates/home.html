@@ -2,7 +2,7 @@
 {% block content %}
 
 {% if session.get('user_id') %}
-    <h3>You are awesome, {{session.get('username') }}!</h3>
+    <h3>You are awesome, {{ session.get('username') }}!</h3>
 {% else %}
     <h3>You are wonderful! </h3>
 {% endif %}
@@ -11,7 +11,7 @@
     <fieldset>
         <legend>Save a message</legend>
         <form action="/messages" method="POST">
-            <textarea name="message"> </textarea>
+            <textarea name="message"></textarea>
             <button type="submit">Submit</button>
         </form>
     </fieldset>
@@ -21,13 +21,13 @@
 <section class="list_messages">
     <ol>
     {% for message in messages %}
-    <div class="message_items">
-        <li><h2>{{ message['message'] }}</h2></li>
-            <a href="/messages/{{ message['id'] }}/show">Show</a>
-    {% if session.get('user_id') %}
-            <a href="/messages/{{ message['id'] }}/edit">Edit</a>
+        <div class="message_items">
+            <li><h2>{{ message['message'] }}</h2></li>
+                <a href="/messages/{{ message['id'] }}/show">Show</a>
+        {% if session.get('user_id') %}
+                <a href="/messages/{{ message['id'] }}/edit">Edit</a>
     {% endif %}
-    </div>
+        </div>
     {% endfor %}
     </ol>
 </section>

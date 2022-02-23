@@ -20,8 +20,11 @@ def create():
 def insert():
     if not session.get('user_id'):
         return redirect('/login')
+    message = request.form.get('message')
+    if len(message) < 5:
+        return redirect('/?error=Please+enter+a+message+at+least+5+characters+long')
     insert_message(
-        request.form.get('message'),
+        message,
         session.get('user_id')
     )
     return redirect('/')

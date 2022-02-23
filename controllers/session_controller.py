@@ -1,5 +1,5 @@
 from flask import Blueprint, request, session, redirect, render_template
-from models.user import get_user_by_email
+from models.user import get_user_by_email_or_username
 import bcrypt
 
 session_controller = Blueprint("session_controller", __name__, template_folder="../templates/session")
@@ -13,8 +13,11 @@ def loginpage():
 def login():
     email = request.form.get('email')
     password = request.form.get('password')
-    user = get_user_by_email(email)
-    
+    # user = get_user_by_email(email)
+    username = request.form.get('username')
+    if username and email:
+        return redirect('/login?error=Enter+username+or+email+only')
+    user = get_user_by_email_or_username(email, username)
     valid = user and bcrypt.checkpw(password.encode(), user['passwords'].encode())
     if valid:
         session['user_id'] = user['id']

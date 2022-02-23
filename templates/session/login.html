@@ -2,11 +2,10 @@
 {% block content %}
 
 <div className="signup-login">
-    
     <form action="/sessions/create" method="POST">
         {% if error %}
             <div class="error">
-                {{error}}
+                {{ error }}
             </div>
         {% endif %}
 
@@ -14,6 +13,8 @@
         <div>
             <label for="email">Email</label>
             <input id="email" name="email" type="email" placeholder="Enter your email"/>
+        </div>
+        <div>
             <label for="username">Username</label>
             <input id="username" name="username" type="text" placeholder="Enter your username"/>
         </div>

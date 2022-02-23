@@ -19,6 +19,13 @@ def get_user_by_email(email):
     else:
         return None
 
+def get_user_by_email_or_username(email, username):
+    results = database.sql_select('SELECT * FROM users WHERE email = %s OR username = %s', [email, username])
+    if len(results) > 0:
+        return results[0]
+    else:
+        return None
+
 # def get_all_users():
     results = database.sql_select("SELECT * USERS")
 

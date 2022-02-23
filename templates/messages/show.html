@@ -1,13 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="message_item">
-    <div class="info">
+    <div class="show_message">
         <h2>{{ message['message'] }}</h2>
-        <form action="/messages/{{ message['id'] }}/delete" method="POST">
+            <form action="/messages/{{ message['id'] }}/delete" method="POST">
             <button type="submit">Delete</button>
-        </form>
+            </form>
         {% if session.get('user_id') %}
             <a href="/messages/{{ message['id'] }}/edit">Edit</a>
         {% endif %}
-    {% endblock content %}
-</div>
+    </div>
+{% endblock content %}
